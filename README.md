@@ -26,7 +26,7 @@ Predictive Insurance Premium Calculator is a full-stack application that combine
 Clone the repository:
 
 ```bash
-git clone https://github.com/ans9611/PacificWave-PremiumPredictor.git
+git clone git@github.com:ans9611/Predictive_InsureCalc.git
 ```
 ## About the Insurance Dataset
 
