@@ -1,10 +1,10 @@
-# PacificWave PremiumPredictor
+# Predictive Insurance Premium Calculator
 
-Welcome to PacificWave PremiumPredictor, a machine learning-driven application designed to predict medical insurance premiums based on user input. This project leverages cutting-edge technology to provide accurate and personalized premium estimates, enhancing decision-making for both insurers and policyholders.
+Welcome to Predictive Insurance Premium Calculator, a machine learning-driven application designed to predict medical insurance premiums based on user input. This project leverages cutting-edge technology to provide accurate and personalized premium estimates, enhancing decision-making for both insurers and policyholders.
 
 ## Project Overview
 
-PacificWave PremiumPredictor is a full-stack application that combines a user-friendly interface with a robust backend to deliver quick and reliable insurance premium predictions. Built using React for the frontend and Flask for the backend, this app integrates a machine learning model trained on real-world data to offer insights into premium calculations.
+Predictive Insurance Premium Calculator is a full-stack application that combines a user-friendly interface with a robust backend to deliver quick and reliable insurance premium predictions. Built using React for the frontend and Flask for the backend, this app integrates a machine learning model trained on real-world data to offer insights into premium calculations.
 
 ## Features
 

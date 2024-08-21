@@ -1,74 +1,43 @@
+# Importing Necessary Libraries
 import numpy as np
 import pandas as pd
 import pickle as pkl
 import streamlit as st
-import smtplib
-from email.mime.text import MIMEText
 
-# Load the trained model using pickle
+# Load the trained model
 model = pkl.load(open('PIC.pkl', 'rb'))
 
-# Streamlit header for the web application
+# App header
 st.header('Predictive Insurance Premium Calculator')
 
 # User inputs for model prediction
 name = st.text_input('Enter Your Name')
-
-sex = st.selectbox('Choose Gender', ['Female', 'Male'])
-
+gender = st.selectbox('Choose Gender', ['Female', 'Male'])
 smoker = st.selectbox('Are you a smoker?', ['Yes', 'No'])
-
 region = st.selectbox(
     'Choose Region', ['SouthEast', 'SouthWest', 'NorthEast', 'NorthWest'])
-
 age = st.slider('Enter Age', 5, 80)
-
 bmi = st.slider('Enter BMI', 5, 100)
+children = st.slider('Choose No of Children', 0, 5)
 
-children = st.slider('Choose Number of Children', 0, 5)
-
-# Predict button triggers the model prediction
+# Predict button
 if st.button('Predict'):
-    # Encoding user inputs for model prediction
-    sex = 0 if sex == 'Female' else 1
+    # Convert categorical inputs to numerical
+    gender = 0 if gender == 'Female' else 1
     smoker = 1 if smoker == 'Yes' else 0
-    region = {'SouthEast': 0, 'SouthWest': 1,
-              'NorthEast': 2, 'NorthWest': 3}[region]
 
-    # Preparing the input data as a DataFrame with the same feature names used during training
-    input_data = pd.DataFrame([[age, sex, bmi, children, smoker, region]],
-                              columns=['age', 'sex', 'bmi', 'children', 'smoker', 'region'])
+    # Encode regions into numerical values
+    region_dict = {'SouthEast': 0, 'SouthWest': 1,
+                   'NorthEast': 2, 'NorthWest': 3}
+    region_encoded = region_dict[region]
 
-    # Predicting the insurance premium using the pre-trained model
-    predicted_prem = model.predict(input_data)
-    display_string = f'Insurance Premium for {name} will be {round(predicted_prem[0], 2)} USD Dollars'
+    # Prepare the input data as a NumPy array
+    input_data = (age, gender, bmi, children, smoker, region_encoded)
+    input_data_array = np.asarray(input_data).reshape(1, -1)
 
-    # Displaying the predicted premium in USD
+    # Predict the insurance premium using the model
+    predicted_prem = model.predict(input_data_array)
+
+    # Display the result
+    display_string = f'Insurance Premium will be {round(predicted_prem[0], 2)} USD Dollars'
     st.markdown(display_string)
-
-    # Email input field
-    email = st.text_input('Enter your email address to receive the result')
-
-    # Send email button
-    if st.button('Send Email'):
-        if email:
-            try:
-                # Setup the MIME
-                msg = MIMEText(display_string)
-                msg['From'] = 'youremail@example.com'
-                msg['To'] = email
-                msg['Subject'] = 'Your Predicted Insurance Premium'
-
-                # Send the email
-                server = smtplib.SMTP('smtp.example.com', 587)
-                server.starttls()
-                server.login('youremail@example.com', 'yourpassword')
-                server.sendmail('youremail@example.com',
-                                email, msg.as_string())
-                server.quit()
-
-                st.success('Email sent successfully!')
-            except Exception as e:
-                st.error(f'Failed to send email. Error: {e}')
-        else:
-            st.error('Please enter a valid email address.')
