@@ -38,3 +38,6 @@ This dataset contains detailed information about insurance customers, including 
 A Study of Customers Insurance Charges
 By Bob Wakefield [source]
 https://data.world/bob-wakefield/insurance
+
+
+https://query.data.world/s/u7szctwylktrfrhorbylglddxq4k2p?dws=00000
