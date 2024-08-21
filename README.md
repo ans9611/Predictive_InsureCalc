@@ -28,16 +28,37 @@ Clone the repository:
 ```bash
 git clone https://github.com/ans9611/PacificWave-PremiumPredictor.git
 ```
+## About the Insurance Dataset
+
+This dataset offers comprehensive information about insurance customers, including details such as age, sex, body mass index (BMI), number of children, smoking status, and region. These insights provide a valuable opportunity for analysts to better understand customer behavior and the factors influencing insurance charges. By examining patterns within the dataset, we can gain meaningful insights into how age, gender, and lifestyle choices impact a person’s insurance premiums. This understanding is crucial when developing insurance plans or designing marketing campaigns targeting specific demographics. Additionally, the dataset allows us to explore critical questions, such as identifying potential strategies for increasing affordability and addressing high charges for certain groups.
+
+## Usage
+
+### Input Details:
+- **Name**
+- **Gender** (Female/Male)
+- **Smoker status** (Yes/No)
+- **Region** (SouthEast, SouthWest, NorthEast, NorthWest)
+- **Age** (slider input between 5 to 80 years)
+- **BMI** (slider input between 5 to 100)
+- **Number of children** (slider input between 0 to 5)
+
+### Prediction:
+- After entering the details, click on the **Predict** button.
+- The application will display the predicted insurance premium in USD.
+
+## Model Details
+- The model used for prediction is a Random Forest Regressor trained on a dataset that includes features like age, gender, BMI, number of children, smoking status, and region.
+- The notebook `Predictive_InsureCalc.ipynb` contains the code for data preprocessing, model training, and evaluation.
+
+## Contributing
+Contributions are welcome! If you'd like to improve this project, please fork the repository and submit a pull request.
+
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 
-## About Insurance Data set
-This dataset contains detailed information about insurance customers, including their age, sex, body mass index (BMI), number of children, smoking status and region. Having access to such valuable insights allows analysts to get a better view into customer behaviour and the factors that contribute to their insurance charges. By understanding the patterns in this data set we can gain useful insight into how age,gender and lifestyle choices can affect a person's insurance premiums. This could be of great value when setting up an insurance plan or marketing campaigns that target certain demographics. Furthermore, this dataset provides us with an opportunity to explore deeper questions such as what are some possible solutions for increasing affordability when it comes to dealing with high charges for certain groups?
-
-
-
-A Study of Customers Insurance Charges
-By Bob Wakefield [source]
-https://data.world/bob-wakefield/insurance
-
-
-https://query.data.world/s/u7szctwylktrfrhorbylglddxq4k2p?dws=00000
+### A Study of Customers' Insurance Charges  
+By Bob Wakefield  
+[Source](https://data.world/bob-wakefield/insurance)  
+[Dataset Query Link](https://query.data.world/s/u7szctwylktrfrhorbylglddxq4k2p?dws=00000)
