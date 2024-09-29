@@ -1,11 +1,11 @@
 # Importing Necessary Libraries
 import numpy as np
 import pandas as pd
-import pickle as pkl
 import streamlit as st
+import fickling
 
 # Load the trained model
-model = pkl.load(open('PIC.pkl', 'rb'))
+model = fickling.load(open('PIC.pkl', 'rb'))
 
 # App header
 st.header('Predictive Insurance Premium Calculator')
